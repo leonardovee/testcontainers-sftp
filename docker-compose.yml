@@ -1,0 +1,11 @@
+services:
+  sftp:
+    image: atmoz/sftp
+    volumes:
+      - ./ssh_host_ed25519_key:/home/foo/.ssh/keys/ssh_host_ed25519_key
+      - ./ssh_host_rsa_key:/home/foo/.ssh/keys/ssh_host_rsa_key
+      - ./ssh_host_ed25519_key.pub:/home/foo/.ssh/keys/ssh_host_ed25519_key.pub:ro
+      - ./ssh_host_rsa_key.pub:/home/foo/.ssh/keys/ssh_host_rsa_key.pub:ro
+    ports:
+      - "2222:22"
+    command: foo::1001
